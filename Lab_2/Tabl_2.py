@@ -1,4 +1,5 @@
-def fun_1(x):
+x = 0.0
+while x <= 1:
     suma = 0
     k = 0
     while True:
@@ -7,10 +8,5 @@ def fun_1(x):
         if abs(f) < 0.001:
             break
         k += 1
-    return round(suma, 4)
-
-
-x = 0.0
-while x <= 1:
-    print("x =", round(x, 3), "\t", "y =", fun_1(x))
+    print("x =", round(x, 3), "\t", "y =", round(suma, 4))
     x += 0.1
