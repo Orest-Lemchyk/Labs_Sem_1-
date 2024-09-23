@@ -8,5 +8,5 @@ while x <= 6:
         y = log10(e**x + 4)
     elif x >= 5:
         y = log(log10(x))
-    print("x = ", x, "y = ", y)
+    print("x =", x,"\t y =", y)
     x = round(x + 0.2, 2)
