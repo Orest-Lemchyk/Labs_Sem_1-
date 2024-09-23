@@ -1,4 +1,4 @@
-def funcsion(x):
+def fun_1(x):
     suma = 0
     k = 0
     while True:
@@ -12,5 +12,5 @@ def funcsion(x):
 
 x = 0.0
 while x <= 1:
-    print("x =", round(x, 3), "\t", "y =", funcsion(x))
+    print("x =", round(x, 3), "\t", "y =", fun_1(x))
     x += 0.1
