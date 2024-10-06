@@ -1,8 +1,13 @@
-сount = 0
-word = input("Введіть слово:")
-word = list(word)
-print(word)
-for el in word:
-    if ("a" <= el <= "z") or ("A" <= el <= "Z") or ("0" <= el <= "9"):
-        сount += 1
-print(сount, "букв та цифр знаходиться в даному рядку")
+def leno(spisok):
+    kil = 0
+    for el in spisok:
+        if ("a" <= el <= "z") or ("A" <= el <= "Z") or ("0" <= el <= "9"):
+            kil += 1
+    print("Кількість букв та цифр в даному рядку =", kil)
+
+
+while True:
+    word = list(input("Введіть слово: "))
+    if len(word) == 0:
+        break
+    leno(word)
