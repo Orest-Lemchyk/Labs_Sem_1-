@@ -1,44 +1,60 @@
-class insects:
-    __name = None
-    __speed = None
-    __weight = None
+class Insects:
 
-   
-    def __init__(self, name = "not definated", speed = "not definated", weight = "lees then one gram"):
+    def __init__(self, name = "not name", speed = 0, weight = 0,  color = "not definated",  legs_num = 0):
         print("Object is created.")
-        self.set_data(name, speed, weight)
-        #self.get_data()
+        self.set_name(name)
+        self.set_speed(speed)
+        self.set_weight(weight)
 
-   
-    def set_data(self, name, speed, weight):
-        self.name = name
-        self.speed = speed
-        self.weight = weight
+        self.color = color
+        self.legs_num = legs_num
 
 
-    def get_data(self):
-        print("Name :", self.name, "Speed(m\s) :", self.speed, "Weight(grams) :", self.weight)
+    def set_name(self, name):
+        self.__name = name
+
+    def get_name(self):
+        return self.__name
 
 
-class fly_insects(insects):
-    __color_wings = None
-    __wings_num = None
-    __test_del = None
-    def __init__(self, name, speed, weight, wings_num = 2, color_wings = "transparent ", test_del = True):
-        super(fly_insects, self).__init__(name, speed, weight)
-        self.color_wings = color_wings
-        self.wings_num = wings_num
-        self.test_del = test_del
+    def set_speed(self, speed):
+        self.__speed = speed
 
-    def get_data(self):
-        super().get_data()
-        print("Color wings:", self.color_wings, "Wings num:", self.wings_num, self.test_del)
-    
+    def get_speed(self):
+        return self.__speed
+
+
+    def set_weight(self, weight):
+        self.__weight = weight
+
+    def get_weight(self):
+        return self.__weight
+
+
+    def __str__(self):
+        print("Calling __str__")
+        return f" insects \n Name: {self.__name}\n Speed(m/s): {self.__speed}\n Weight: {self.__weight}\n Color: {self.color}\n Legs num: {self.legs_num}\n"
+
+
+    def __repr__(self):
+        print("Calling __repr__")
+        return self.__str__()
+
 
     def __del__(self):
-        print("Object deleted")
+        print(f"Object {self.__name} is deleted")
 
-ant = insects("Ant", 5, 10)
-ant.get_data()
-buterfly = fly_insects("bob", 3, 7, 2, "blue")
-buterfly.get_data()
+
+def main():
+    ant = Insects("Ant", 5, 10, "red", 8)
+    beetle = Insects("Beetle", 10, 3, "yelow", 6)
+    chafer= Insects("Chafer", 15, 16, "brown", 6)
+    print(ant)
+    print(beetle)
+    print(chafer)
+    del ant
+    del beetle
+    del chafer
+
+
+main()
