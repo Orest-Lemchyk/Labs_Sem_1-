@@ -33,9 +33,10 @@ class Insects:
 
     def __str__(self):
        # print("Calling __str__")
-        return f" Insects \n Name: {self.__name}\n Speed(m/s): {self.__speed}\n Weight: {self.__weight}\n Color: {self.color}\n Legs num: {self.legs_num}\n"
+        #return f" Insects \n Name: {self.__name}\n Speed(m/s): {self.__speed}\n Weight: {self.__weight}\n Color: {self.color}\n Legs num: {self.legs_num}\n"
+        return f" Insects  Name: {self.__name} Speed(m/s): {self.__speed} Weight: {self.__weight} Color: {self.color} Legs num: {self.legs_num}"
 
-  
+
     def __repr__(self):
         print("Calling __repr__")
         return self.__str__()
@@ -44,27 +45,29 @@ class Insects:
     def __del__(self):
         print(f"Object {self.__name} is deleted")
 
+
 ant = Insects("Ant", 5, 10, "red", 8)
 beetle = Insects("Beetle", 10, 3, "yelow", 6)
-chafer= Insects("Chafer", 15, 16, "brown", 6)
+chafer = Insects("Chafer", 15, 16, "brown", 6)
 
-comand = input("what shoud I do? :")
-who = input("who? :")
+insects_dict = {"ant": ant, "beetle": beetle, "chafer": chafer}
 
+while True:
 
-if comand == "print":
-    if who == "Ant":
-        print(ant)
-    elif who == "Beetle":
-        print(beetle)
-    elif who == "Chafer":
-        print(chafer) 
+    user_input = input("Enter a command (e.g., print ant, del ant, or exit): ").strip().lower()
+    user_comand = user_input.split()[0]
 
+    match user_comand:
+        case "print":
+            var_name = user_input.split()[1]
+            if var_name in insects_dict:
+                print(insects_dict[var_name])
 
-if comand == "del":
-    if who == "Ant":
-        del ant
-    elif who == "Beetle":
-        del beetle
-    elif who == "Chafer":
-        del chafer
+        case "del":
+            var_name = user_input.split()[1]
+            if var_name in insects_dict:
+                del insects_dict[var_name]
+                print(f"{var_name} is deleted")
+
+        case "exit":
+            break
