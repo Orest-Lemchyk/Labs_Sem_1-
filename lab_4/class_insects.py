@@ -32,10 +32,10 @@ class Insects:
 
 
     def __str__(self):
-        print("Calling __str__")
-        return f" insects \n Name: {self.__name}\n Speed(m/s): {self.__speed}\n Weight: {self.__weight}\n Color: {self.color}\n Legs num: {self.legs_num}\n"
+       # print("Calling __str__")
+        return f" Insects \n Name: {self.__name}\n Speed(m/s): {self.__speed}\n Weight: {self.__weight}\n Color: {self.color}\n Legs num: {self.legs_num}\n"
 
-
+  
     def __repr__(self):
         print("Calling __repr__")
         return self.__str__()
@@ -44,17 +44,27 @@ class Insects:
     def __del__(self):
         print(f"Object {self.__name} is deleted")
 
+ant = Insects("Ant", 5, 10, "red", 8)
+beetle = Insects("Beetle", 10, 3, "yelow", 6)
+chafer= Insects("Chafer", 15, 16, "brown", 6)
 
-def main():
-    ant = Insects("Ant", 5, 10, "red", 8)
-    beetle = Insects("Beetle", 10, 3, "yelow", 6)
-    chafer= Insects("Chafer", 15, 16, "brown", 6)
-    print(ant)
-    print(beetle)
-    print(chafer)
-    del ant
-    del beetle
-    del chafer
+comand = input("what shoud I do? :")
+who = input("who? :")
 
 
-main()
+if comand == "print":
+    if who == "Ant":
+        print(ant)
+    elif who == "Beetle":
+        print(beetle)
+    elif who == "Chafer":
+        print(chafer) 
+
+
+if comand == "del":
+    if who == "Ant":
+        del ant
+    elif who == "Beetle":
+        del beetle
+    elif who == "Chafer":
+        del chafer
